@@ -1,6 +1,6 @@
 {
     "name": "cloudix-app",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "description": "CloudiX Hosting Desktop App - Earn coins, complete quests, redeem hosting",
     "main": "src/main/main.js",
     "author": "CloudiX Hosting <contact@cloudixhosting.site>",
