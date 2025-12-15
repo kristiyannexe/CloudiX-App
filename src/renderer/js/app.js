@@ -514,6 +514,11 @@ function navigateTo(pageName) {
 
     appState.currentPage = pageName;
 
+    // Update Discord Rich Presence
+    if (window.cloudix && window.cloudix.updateDiscordPresence) {
+        window.cloudix.updateDiscordPresence(pageName);
+    }
+
     if (pageName === 'servers') {
         loadServers();
     } else if (pageName === 'redeem') {

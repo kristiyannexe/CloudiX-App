@@ -48,6 +48,9 @@ contextBridge.exposeInMainWorld('cloudix', {
     // Update status listener
     onUpdateStatus: (callback) => {
         ipcRenderer.on('update-status', (event, data) => callback(data));
-    }
+    },
+
+    // Discord Rich Presence
+    updateDiscordPresence: (page, details) => ipcRenderer.invoke('update-discord-presence', page, details)
 });
 

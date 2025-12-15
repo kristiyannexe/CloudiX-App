@@ -3,12 +3,83 @@ const path = require('path');
 const { registerHandlers } = require('./ipc-handlers');
 const { autoUpdater } = require('electron-updater');
 const logger = require('./logger');
+const DiscordRPC = require('discord-rpc');
 
 let mainWindow = null;
+let rpc = null;
+
+// Discord Rich Presence Configuration
+// Create your Discord app at: https://discord.com/developers/applications
+const DISCORD_CLIENT_ID = '1318962219131699310'; // Replace with your Discord App Client ID
 
 // Auto-updater configuration
 autoUpdater.autoDownload = true; // Auto-download updates
 autoUpdater.autoInstallOnAppQuit = true; // Install when app closes
+
+// ================================
+// Discord Rich Presence
+// ================================
+async function initDiscordRPC() {
+    try {
+        DiscordRPC.register(DISCORD_CLIENT_ID);
+        rpc = new DiscordRPC.Client({ transport: 'ipc' });
+
+        rpc.on('ready', () => {
+            logger.info('Discord Rich Presence connected');
+            updateDiscordPresence('dashboard');
+        });
+
+        rpc.on('disconnected', () => {
+            logger.info('Discord Rich Presence disconnected');
+            rpc = null;
+        });
+
+        await rpc.login({ clientId: DISCORD_CLIENT_ID });
+    } catch (error) {
+        logger.error('Discord RPC error:', error.message);
+        rpc = null;
+    }
+}
+
+function updateDiscordPresence(page = 'dashboard', details = null) {
+    if (!rpc) return;
+
+    const pageNames = {
+        'dashboard': 'Dashboard',
+        'servers': 'Преглежда сървърите',
+        'quests': 'Покани приятели',
+        'redeem': 'Взема награда',
+        'partner': 'LOWKATA страница',
+        'settings': 'Настройки',
+        'admin': 'Admin Panel'
+    };
+
+    try {
+        rpc.setActivity({
+            details: details || pageNames[page] || 'CloudiX App',
+            state: 'Безплатен FiveM хостинг',
+            startTimestamp: Date.now(),
+            largeImageKey: 'cloudix_logo',
+            largeImageText: 'CloudiX Hosting',
+            smallImageKey: 'online',
+            smallImageText: 'Online',
+            buttons: [
+                { label: '🌐 Уебсайт', url: 'https://cloudixhosting.site' },
+                { label: '💬 Discord', url: 'https://discord.gg/Bv2Q6z9T' }
+            ],
+            instance: false
+        });
+    } catch (error) {
+        logger.error('Discord presence update error:', error.message);
+    }
+}
+
+function destroyDiscordRPC() {
+    if (rpc) {
+        rpc.destroy();
+        rpc = null;
+    }
+}
 
 function createWindow() {
     // Create the browser window
@@ -166,6 +237,12 @@ ipcMain.handle('updater-get-version', () => {
     return { success: true, version: app.getVersion() };
 });
 
+// Discord Rich Presence - page change handler
+ipcMain.handle('update-discord-presence', (event, page, details) => {
+    updateDiscordPresence(page, details);
+    return { success: true };
+});
+
 // Initialize app
 app.whenReady().then(() => {
     // Register IPC handlers before creating window
@@ -173,6 +250,9 @@ app.whenReady().then(() => {
 
     // Create the main window
     createWindow();
+
+    // Initialize Discord Rich Presence
+    initDiscordRPC();
 
     // Log app open to Discord
     const Store = require('electron-store');
