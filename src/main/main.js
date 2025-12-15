@@ -15,6 +15,16 @@ const DISCORD_CLIENT_ID = '1318962219131699310'; // Replace with your Discord Ap
 // Auto-updater configuration
 autoUpdater.autoDownload = true; // Auto-download updates
 autoUpdater.autoInstallOnAppQuit = true; // Install when app closes
+autoUpdater.forceAppQuit = true; // Force quit on install
+
+// IMPORTANT: Disable code signature verification for unsigned apps
+// Remove this line when you have a valid code signing certificate
+process.env.ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES = 'true';
+
+// For Windows - skip code signature verification
+if (process.platform === 'win32') {
+    autoUpdater.forceDevUpdateConfig = true;
+}
 
 // ================================
 // Discord Rich Presence

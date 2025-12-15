@@ -65,7 +65,8 @@
             "icon": "assets/icon.png",
             "publisherName": "CloudiX Hosting",
             "requestedExecutionLevel": "asInvoker",
-            "verifyUpdateCodeSignature": false
+            "verifyUpdateCodeSignature": false,
+            "signAndEditExecutable": false
         },
         "nsis": {
             "oneClick": true,
