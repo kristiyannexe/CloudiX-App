@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конзола - CloudiX Docs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/docs.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">☁️</span><span>CloudiX
+                    Docs</span></a></div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3>Начало</h3><a href="index.html" class="nav-link">📚 Въведение</a><a href="quickstart.html"
+                    class="nav-link">🚀 Бърз старт</a><a href="faq.html" class="nav-link">❓ FAQ</a>
+            </div>
+            <div class="nav-section">
+                <h3>CloudiX App</h3><a href="app-install.html" class="nav-link">📥 Инсталация</a><a
+                    href="app-login.html" class="nav-link">🔐 Вход</a><a href="app-quests.html" class="nav-link">🎯
+                    Покани</a><a href="app-redeem.html" class="nav-link">🎁 Redeem</a>
+            </div>
+            <div class="nav-section">
+                <h3>Pterodactyl</h3><a href="panel-overview.html" class="nav-link">🖥️ Общ преглед</a><a
+                    href="panel-files.html" class="nav-link">📁 Файлове</a><a href="panel-console.html"
+                    class="nav-link active">💻 Конзола</a><a href="panel-databases.html" class="nav-link">🗄️ Бази
+                    данни</a><a href="panel-backups.html" class="nav-link">💾 Бекъпи</a><a href="panel-schedules.html"
+                    class="nav-link">⏰ Задачи</a>
+            </div>
+            <div class="nav-section">
+                <h3>FiveM</h3><a href="fivem-setup.html" class="nav-link">⚙️ Настройка</a><a href="fivem-txadmin.html"
+                    class="nav-link">🎮 txAdmin</a><a href="fivem-resources.html" class="nav-link">📦 Ресурси</a><a
+                    href="fivem-database.html" class="nav-link">🗃️ MySQL</a><a href="fivem-cfx.html"
+                    class="nav-link">🔑 CFX</a>
+            </div>
+            <div class="nav-section">
+                <h3>Поддръжка</h3><a href="support.html" class="nav-link">💬 Контакт</a><a
+                    href="https://discord.gg/Bv2Q6z9T" class="nav-link" target="_blank">🎮 Discord</a>
+            </div>
+        </nav>
+        <div class="sidebar-footer">
+            <p>© 2025 CloudiX</p>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header class="content-header">
+            <div class="breadcrumb"><span>Pterodactyl</span><span>/</span><span>Конзола</span></div>
+            <div class="header-actions"><a href="https://panel.cloudixhosting.site" class="btn btn-primary"
+                    target="_blank">🖥️ Панел</a></div>
+        </header>
+        <article class="content">
+            <h1>💻 Конзола</h1>
+            <p class="intro">Конзолата показва изхода от сървъра и позволява изпълнение на команди.</p>
+
+            <h2>📺 Преглед на изход</h2>
+            <p>Конзолата показва в реално време:</p>
+            <ul>
+                <li>Стартиране на сървъра</li>
+                <li>Съобщения от играчи</li>
+                <li>Грешки и предупреждения</li>
+                <li>Логове от ресурси</li>
+            </ul>
+
+            <h2>⌨️ Изпълнение на команди</h2>
+            <ol>
+                <li>Въведи команда в полето долу</li>
+                <li>Натисни Enter за изпълнение</li>
+            </ol>
+
+            <h3>Полезни команди за FiveM</h3>
+            <pre><code># Рестартиране на ресурс
+restart resourcename
+
+# Зареждане на нов ресурс
+ensure resourcename
+
+# Спиране на ресурс
+stop resourcename
+
+# Списък с играчи
+players
+
+# Изгонване на играч
+kick ID "причина"
+
+# Бан на играч
+ban ID "причина"</code></pre>
+
+            <h2>🎨 Цветни кодове</h2>
+            <ul>
+                <li><span style="color: #22c55e;">Зелено</span> - Стандартен изход</li>
+                <li><span style="color: #eab308;">Жълто</span> - Предупреждения</li>
+                <li><span style="color: #ef4444;">Червено</span> - Грешки</li>
+                <li><span style="color: #3b82f6;">Синьо</span> - Информация</li>
+            </ul>
+
+            <h2>📋 Бутони за контрол</h2>
+            <ul>
+                <li><strong>Start</strong> - Стартира сървъра</li>
+                <li><strong>Restart</strong> - Рестартира сървъра</li>
+                <li><strong>Stop</strong> - Спира сървъра грациозно</li>
+                <li><strong>Kill</strong> - Принудително спира сървъра</li>
+            </ul>
+
+            <div class="callout callout-warning">
+                <h4>⚠️ Kill vs Stop</h4>
+                <p>Използвай "Kill" само ако сървърът не реагира. Може да причини загуба на данни!</p>
+            </div>
+        </article>
+        <footer class="content-footer">
+            <div class="footer-nav"><a href="panel-files.html" class="prev-link">← Файлове</a><a
+                    href="panel-databases.html" class="next-link">Бази данни →</a></div>
+            <p class="footer-copyright">© 2025 CloudiX Hosting</p>
+        </footer>
+    </main>
+    <script src="js/docs.js"></script>
+</body>
+
+</html>

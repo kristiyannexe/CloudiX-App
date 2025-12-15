@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiveM Настройка - CloudiX Docs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/docs.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">☁️</span>
+                <span>CloudiX Docs</span>
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3>Начало</h3>
+                <a href="index.html" class="nav-link">📚 Въведение</a>
+                <a href="quickstart.html" class="nav-link">🚀 Бърз старт</a>
+                <a href="faq.html" class="nav-link">❓ Често задавани въпроси</a>
+            </div>
+            <div class="nav-section">
+                <h3>CloudiX App</h3>
+                <a href="app-install.html" class="nav-link">📥 Инсталация</a>
+                <a href="app-login.html" class="nav-link">🔐 Вход в приложението</a>
+                <a href="app-quests.html" class="nav-link">🎯 Покани и награди</a>
+                <a href="app-redeem.html" class="nav-link">🎁 Вземане на хостинг</a>
+            </div>
+            <div class="nav-section">
+                <h3>Pterodactyl Panel</h3>
+                <a href="panel-overview.html" class="nav-link">🖥️ Общ преглед</a>
+                <a href="panel-files.html" class="nav-link">📁 Файлов мениджър</a>
+                <a href="panel-console.html" class="nav-link">💻 Конзола</a>
+                <a href="panel-databases.html" class="nav-link">🗄️ Бази данни</a>
+                <a href="panel-backups.html" class="nav-link">💾 Бекъпи</a>
+                <a href="panel-schedules.html" class="nav-link">⏰ Задачи</a>
+            </div>
+            <div class="nav-section">
+                <h3>FiveM Сървър</h3>
+                <a href="fivem-setup.html" class="nav-link active">⚙️ Първоначална настройка</a>
+                <a href="fivem-txadmin.html" class="nav-link">🎮 txAdmin панел</a>
+                <a href="fivem-resources.html" class="nav-link">📦 Добавяне на ресурси</a>
+                <a href="fivem-database.html" class="nav-link">🗃️ MySQL база данни</a>
+                <a href="fivem-cfx.html" class="nav-link">🔑 CFX лиценз</a>
+            </div>
+            <div class="nav-section">
+                <h3>Поддръжка</h3>
+                <a href="support.html" class="nav-link">💬 Контакт</a>
+                <a href="https://discord.gg/Bv2Q6z9T" class="nav-link" target="_blank">🎮 Discord</a>
+            </div>
+        </nav>
+        <div class="sidebar-footer">
+            <p>© 2025 CloudiX Hosting</p>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="content-header">
+            <div class="breadcrumb">
+                <span>Docs</span>
+                <span>/</span>
+                <span>FiveM</span>
+                <span>/</span>
+                <span>Настройка</span>
+            </div>
+            <div class="header-actions">
+                <a href="https://panel.cloudixhosting.site" class="btn btn-primary" target="_blank">🖥️ Панел</a>
+            </div>
+        </header>
+
+        <article class="content">
+            <h1>⚙️ Първоначална настройка на FiveM</h1>
+
+            <p class="intro">
+                След като вземеш сървъра от CloudiX App, следвай тези стъпки за да го настроиш.
+            </p>
+
+            <h2>🔑 Получаване на CFX лиценз</h2>
+
+            <p>Преди да стартираш сървъра, ти трябва CFX лиценз ключ:</p>
+
+            <ol>
+                <li>Отиди на <a href="https://keymaster.fivem.net" target="_blank">keymaster.fivem.net</a></li>
+                <li>Влез с Cfx.re акаунт (регистрирай се ако нямаш)</li>
+                <li>Кликни "Register a new server"</li>
+                <li>Попълни формата:
+                    <ul>
+                        <li><strong>Label:</strong> Име на сървъра</li>
+                        <li><strong>IP Address:</strong> IP на твоя сървър (виж в панела)</li>
+                    </ul>
+                </li>
+                <li>Копирай получения ключ</li>
+            </ol>
+
+            <h2>📋 Настройка на server.cfg</h2>
+
+            <p>Основни настройки в <code>server.cfg</code>:</p>
+
+            <pre><code># Основни настройки
+sv_hostname "Моят FiveM Сървър"
+sv_maxclients 32
+
+# CFX лиценз (постави своя ключ)
+sv_licenseKey "cfxk_xxxxxxxxxxxxxxxxxxxx"
+
+# Steam Web API Key (по избор)
+set steam_webApiKey ""
+
+# OneSync
+set onesync on
+
+# RCON парола (смени я!)
+rcon_password "силна_парола_тук"
+
+# Стартиране на ресурси
+ensure mapmanager
+ensure chat
+ensure spawnmanager
+ensure sessionmanager
+ensure basic-gamemode
+ensure hardcap</code></pre>
+
+            <h2>🎮 Влизане в txAdmin</h2>
+
+            <p>txAdmin е вграден панел за управление на FiveM сървъра:</p>
+
+            <ol>
+                <li>Стартирай сървъра от Pterodactyl панела</li>
+                <li>В конзолата ще видиш txAdmin URL и PIN</li>
+                <li>Отвори URL в браузъра</li>
+                <li>Въведи PIN кода</li>
+                <li>Създай администраторски акаунт</li>
+            </ol>
+
+            <div class="callout callout-info">
+                <h4>💡 txAdmin порт</h4>
+                <p>txAdmin обикновено работи на порт 40120. Пълният URL е: <code>http://IP:40120</code></p>
+            </div>
+
+            <h2>📁 Структура на файловете</h2>
+
+            <pre><code>/
+├── server.cfg          # Основна конфигурация
+├── server-data/        # Данни на сървъра
+│   └── resources/      # Ресурси (скриптове)
+├── txData/             # txAdmin данни
+└── cache/              # Кеш файлове</code></pre>
+
+            <h2>▶️ Стартиране на сървъра</h2>
+
+            <ol>
+                <li>Влез в Pterodactyl панела</li>
+                <li>Избери сървъра</li>
+                <li>Кликни зеленият бутон "Start"</li>
+                <li>Изчакай сървъра да стартира (може да отнеме 1-2 минути)</li>
+                <li>Свържи се от FiveM с <code>connect IP:PORT</code></li>
+            </ol>
+
+            <div class="callout callout-warning">
+                <h4>⚠️ Първо стартиране</h4>
+                <p>При първото стартиране сървърът ще изтегли нужните файлове. Това може да отнеме няколко минути.</p>
+            </div>
+        </article>
+
+        <footer class="content-footer">
+            <div class="footer-nav">
+                <a href="panel-schedules.html" class="prev-link">← Задачи</a>
+                <a href="fivem-txadmin.html" class="next-link">txAdmin →</a>
+            </div>
+            <p class="footer-copyright">© 2025 CloudiX Hosting. Всички права запазени.</p>
+        </footer>
+    </main>
+
+    <script src="js/docs.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ресурси - CloudiX Docs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/docs.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">☁️</span><span>CloudiX
+                    Docs</span></a></div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3>Начало</h3><a href="index.html" class="nav-link">📚 Въведение</a><a href="quickstart.html"
+                    class="nav-link">🚀 Бърз старт</a><a href="faq.html" class="nav-link">❓ FAQ</a>
+            </div>
+            <div class="nav-section">
+                <h3>CloudiX App</h3><a href="app-install.html" class="nav-link">📥 Инсталация</a><a
+                    href="app-login.html" class="nav-link">🔐 Вход</a><a href="app-quests.html" class="nav-link">🎯
+                    Покани</a><a href="app-redeem.html" class="nav-link">🎁 Redeem</a>
+            </div>
+            <div class="nav-section">
+                <h3>Pterodactyl</h3><a href="panel-overview.html" class="nav-link">🖥️ Общ преглед</a><a
+                    href="panel-files.html" class="nav-link">📁 Файлове</a><a href="panel-console.html"
+                    class="nav-link">💻 Конзола</a><a href="panel-databases.html" class="nav-link">🗄️ Бази данни</a><a
+                    href="panel-backups.html" class="nav-link">💾 Бекъпи</a><a href="panel-schedules.html"
+                    class="nav-link">⏰ Задачи</a>
+            </div>
+            <div class="nav-section">
+                <h3>FiveM</h3><a href="fivem-setup.html" class="nav-link">⚙️ Настройка</a><a href="fivem-txadmin.html"
+                    class="nav-link">🎮 txAdmin</a><a href="fivem-resources.html" class="nav-link active">📦
+                    Ресурси</a><a href="fivem-database.html" class="nav-link">🗃️ MySQL</a><a href="fivem-cfx.html"
+                    class="nav-link">🔑 CFX</a>
+            </div>
+            <div class="nav-section">
+                <h3>Поддръжка</h3><a href="support.html" class="nav-link">💬 Контакт</a><a
+                    href="https://discord.gg/Bv2Q6z9T" class="nav-link" target="_blank">🎮 Discord</a>
+            </div>
+        </nav>
+        <div class="sidebar-footer">
+            <p>© 2025 CloudiX</p>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header class="content-header">
+            <div class="breadcrumb"><span>FiveM</span><span>/</span><span>Ресурси</span></div>
+            <div class="header-actions"><a href="https://panel.cloudixhosting.site" class="btn btn-primary"
+                    target="_blank">🖥️ Панел</a></div>
+        </header>
+        <article class="content">
+            <h1>📦 Добавяне на ресурси</h1>
+            <p class="intro">Ресурсите (скриптове) добавят функционалност към сървъра.</p>
+
+            <h2>📥 Инсталиране на ресурс</h2>
+            <ol>
+                <li>Изтегли ресурса (обикновено .zip)</li>
+                <li>Качи го в <code>resources</code> папката чрез файловия мениджър</li>
+                <li>Разархивирай го (десен бутон → Unarchive)</li>
+                <li>Добави в <code>server.cfg</code>: <code>ensure resourcename</code></li>
+                <li>Рестартирай сървъра</li>
+            </ol>
+
+            <h2>📁 Структура на ресурс</h2>
+            <pre><code>resources/
+└── myresource/
+    ├── fxmanifest.lua    # Манифест файл
+    ├── client.lua        # Клиентски код
+    ├── server.lua        # Сървърен код
+    └── config.lua        # Конфигурация</code></pre>
+
+            <h2>📋 fxmanifest.lua</h2>
+            <p>Всеки ресурс има манифест файл:</p>
+            <pre><code>fx_version 'cerulean'
+game 'gta5'
+
+author 'Your Name'
+description 'My Resource'
+version '1.0.0'
+
+client_script 'client.lua'
+server_script 'server.lua'</code></pre>
+
+            <h2>🔧 server.cfg команди</h2>
+            <pre><code># Зареждане на ресурс
+ensure resourcename
+
+# Зареждане на папка с ресурси
+ensure [foldername]
+
+# Спиране на ресурс
+stop resourcename
+
+# Рестартиране
+restart resourcename</code></pre>
+
+            <h2>🎨 Популярни ресурси</h2>
+            <ul>
+                <li><strong>ESX</strong> - Roleplay framework</li>
+                <li><strong>QBCore</strong> - Roleplay framework</li>
+                <li><strong>ox_lib</strong> - Utility библиотека</li>
+                <li><strong>ox_inventory</strong> - Инвентар система</li>
+                <li><strong>ox_target</strong> - Target система</li>
+            </ul>
+
+            <h2>🌐 Къде да намериш ресурси</h2>
+            <ul>
+                <li><a href="https://github.com" target="_blank">GitHub</a> - Безплатни ресурси</li>
+                <li><a href="https://forum.cfx.re" target="_blank">CFX Forums</a> - Официален форум</li>
+                <li><a href="https://fivem.net" target="_blank">FiveM.net</a> - Ресурси и скриптове</li>
+            </ul>
+
+            <div class="callout callout-warning">
+                <h4>⚠️ Внимание</h4>
+                <p>Инсталирай само ресурси от доверени източници! Злонамерени скриптове могат да повредят сървъра.</p>
+            </div>
+
+            <h2>🔍 Troubleshooting</h2>
+            <ul>
+                <li><strong>Ресурсът не се зарежда</strong> - Провери за грешки в конзолата</li>
+                <li><strong>Липсващи dependencies</strong> - Инсталирай нужните зависимости</li>
+                <li><strong>Грешка в конфиг</strong> - Провери синтаксиса на config.lua</li>
+            </ul>
+        </article>
+        <footer class="content-footer">
+            <div class="footer-nav"><a href="fivem-txadmin.html" class="prev-link">← txAdmin</a><a
+                    href="fivem-database.html" class="next-link">MySQL →</a></div>
+            <p class="footer-copyright">© 2025 CloudiX Hosting</p>
+        </footer>
+    </main>
+    <script src="js/docs.js"></script>
+</body>
+
+</html>

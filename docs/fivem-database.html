@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySQL база данни - CloudiX Docs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/docs.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">☁️</span><span>CloudiX
+                    Docs</span></a></div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3>Начало</h3><a href="index.html" class="nav-link">📚 Въведение</a><a href="quickstart.html"
+                    class="nav-link">🚀 Бърз старт</a><a href="faq.html" class="nav-link">❓ FAQ</a>
+            </div>
+            <div class="nav-section">
+                <h3>CloudiX App</h3><a href="app-install.html" class="nav-link">📥 Инсталация</a><a
+                    href="app-login.html" class="nav-link">🔐 Вход</a><a href="app-quests.html" class="nav-link">🎯
+                    Покани</a><a href="app-redeem.html" class="nav-link">🎁 Redeem</a>
+            </div>
+            <div class="nav-section">
+                <h3>Pterodactyl</h3><a href="panel-overview.html" class="nav-link">🖥️ Общ преглед</a><a
+                    href="panel-files.html" class="nav-link">📁 Файлове</a><a href="panel-console.html"
+                    class="nav-link">💻 Конзола</a><a href="panel-databases.html" class="nav-link">🗄️ Бази данни</a><a
+                    href="panel-backups.html" class="nav-link">💾 Бекъпи</a><a href="panel-schedules.html"
+                    class="nav-link">⏰ Задачи</a>
+            </div>
+            <div class="nav-section">
+                <h3>FiveM</h3><a href="fivem-setup.html" class="nav-link">⚙️ Настройка</a><a href="fivem-txadmin.html"
+                    class="nav-link">🎮 txAdmin</a><a href="fivem-resources.html" class="nav-link">📦 Ресурси</a><a
+                    href="fivem-database.html" class="nav-link active">🗃️ MySQL</a><a href="fivem-cfx.html"
+                    class="nav-link">🔑 CFX</a>
+            </div>
+            <div class="nav-section">
+                <h3>Поддръжка</h3><a href="support.html" class="nav-link">💬 Контакт</a><a
+                    href="https://discord.gg/Bv2Q6z9T" class="nav-link" target="_blank">🎮 Discord</a>
+            </div>
+        </nav>
+        <div class="sidebar-footer">
+            <p>© 2025 CloudiX</p>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header class="content-header">
+            <div class="breadcrumb"><span>FiveM</span><span>/</span><span>MySQL</span></div>
+            <div class="header-actions"><a href="https://panel.cloudixhosting.site" class="btn btn-primary"
+                    target="_blank">🖥️ Панел</a></div>
+        </header>
+        <article class="content">
+            <h1>🗃️ MySQL база данни за FiveM</h1>
+            <p class="intro">Повечето FiveM ресурси изискват MySQL база данни за съхранение на данни.</p>
+
+            <h2>📝 Създаване на база данни</h2>
+            <ol>
+                <li>Влез в Pterodactyl панела</li>
+                <li>Избери сървъра си</li>
+                <li>Отиди на "Databases"</li>
+                <li>Кликни "New Database"</li>
+                <li>Въведи име и създай</li>
+            </ol>
+
+            <h2>🔌 Connection String</h2>
+            <p>Формат за FiveM ресурси:</p>
+            <pre><code>mysql://username:password@host:3306/database</code></pre>
+
+            <h3>Пример в server.cfg</h3>
+            <pre><code>set mysql_connection_string "mysql://u123_abc:mypassword@mysql.cloudixhosting.site:3306/s123_fivem"</code></pre>
+
+            <h2>📦 Популярни MySQL ресурси</h2>
+
+            <h3>mysql-async (стар)</h3>
+            <pre><code>set mysql_connection_string "mysql://user:pass@host/database"</code></pre>
+
+            <h3>oxmysql (препоръчителен)</h3>
+            <pre><code>set mysql_connection_string "mysql://user:pass@host/database"</code></pre>
+
+            <h3>ghmattimysql</h3>
+            <pre><code>set mysql_connection_string "mysql://user:pass@host/database"</code></pre>
+
+            <h2>📋 Импортиране на SQL файл</h2>
+            <p>Много ресурси идват със SQL файл за създаване на таблици:</p>
+            <ol>
+                <li>Намери .sql файла в ресурса</li>
+                <li>Използвай phpMyAdmin или HeidiSQL за импорт</li>
+                <li>Или изпълни SQL командите ръчно</li>
+            </ol>
+
+            <h2>🔧 HeidiSQL</h2>
+            <ol>
+                <li>Изтегли <a href="https://www.heidisql.com" target="_blank">HeidiSQL</a></li>
+                <li>Създай нова сесия</li>
+                <li>Въведи данните от панела:
+                    <ul>
+                        <li>Hostname: от Endpoint</li>
+                        <li>User: от Username</li>
+                        <li>Password: от Password</li>
+                        <li>Port: 3306</li>
+                    </ul>
+                </li>
+                <li>Свържи се</li>
+                <li>Избери базата и изпълни SQL</li>
+            </ol>
+
+            <div class="callout callout-info">
+                <h4>💡 Съвет</h4>
+                <p>Използвай <code>oxmysql</code> за най-добра производителност и съвместимост.</p>
+            </div>
+
+            <h2>🔍 Troubleshooting</h2>
+            <ul>
+                <li><strong>Connection refused</strong> - Провери host и порт</li>
+                <li><strong>Access denied</strong> - Грешна парола или потребител</li>
+                <li><strong>Unknown database</strong> - Базата не съществува</li>
+            </ul>
+        </article>
+        <footer class="content-footer">
+            <div class="footer-nav"><a href="fivem-resources.html" class="prev-link">← Ресурси</a><a
+                    href="fivem-cfx.html" class="next-link">CFX лиценз →</a></div>
+            <p class="footer-copyright">© 2025 CloudiX Hosting</p>
+        </footer>
+    </main>
+    <script src="js/docs.js"></script>
+</body>
+
+</html>

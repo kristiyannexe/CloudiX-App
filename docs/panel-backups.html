@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бекъпи - CloudiX Docs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/docs.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">☁️</span><span>CloudiX
+                    Docs</span></a></div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3>Начало</h3><a href="index.html" class="nav-link">📚 Въведение</a><a href="quickstart.html"
+                    class="nav-link">🚀 Бърз старт</a><a href="faq.html" class="nav-link">❓ FAQ</a>
+            </div>
+            <div class="nav-section">
+                <h3>CloudiX App</h3><a href="app-install.html" class="nav-link">📥 Инсталация</a><a
+                    href="app-login.html" class="nav-link">🔐 Вход</a><a href="app-quests.html" class="nav-link">🎯
+                    Покани</a><a href="app-redeem.html" class="nav-link">🎁 Redeem</a>
+            </div>
+            <div class="nav-section">
+                <h3>Pterodactyl</h3><a href="panel-overview.html" class="nav-link">🖥️ Общ преглед</a><a
+                    href="panel-files.html" class="nav-link">📁 Файлове</a><a href="panel-console.html"
+                    class="nav-link">💻 Конзола</a><a href="panel-databases.html" class="nav-link">🗄️ Бази данни</a><a
+                    href="panel-backups.html" class="nav-link active">💾 Бекъпи</a><a href="panel-schedules.html"
+                    class="nav-link">⏰ Задачи</a>
+            </div>
+            <div class="nav-section">
+                <h3>FiveM</h3><a href="fivem-setup.html" class="nav-link">⚙️ Настройка</a><a href="fivem-txadmin.html"
+                    class="nav-link">🎮 txAdmin</a><a href="fivem-resources.html" class="nav-link">📦 Ресурси</a><a
+                    href="fivem-database.html" class="nav-link">🗃️ MySQL</a><a href="fivem-cfx.html"
+                    class="nav-link">🔑 CFX</a>
+            </div>
+            <div class="nav-section">
+                <h3>Поддръжка</h3><a href="support.html" class="nav-link">💬 Контакт</a><a
+                    href="https://discord.gg/Bv2Q6z9T" class="nav-link" target="_blank">🎮 Discord</a>
+            </div>
+        </nav>
+        <div class="sidebar-footer">
+            <p>© 2025 CloudiX</p>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header class="content-header">
+            <div class="breadcrumb"><span>Pterodactyl</span><span>/</span><span>Бекъпи</span></div>
+            <div class="header-actions"><a href="https://panel.cloudixhosting.site" class="btn btn-primary"
+                    target="_blank">🖥️ Панел</a></div>
+        </header>
+        <article class="content">
+            <h1>💾 Бекъпи</h1>
+            <p class="intro">Защити данните си с регулярни бекъпи.</p>
+
+            <h2>➕ Създаване на бекъп</h2>
+            <ol>
+                <li>Отиди на раздел "Backups"</li>
+                <li>Кликни "Create Backup"</li>
+                <li>Въведи име (по избор)</li>
+                <li>Избери дали да заключиш бекъпа</li>
+                <li>Кликни "Start Backup"</li>
+            </ol>
+
+            <div class="callout callout-info">
+                <h4>💡 Лимит на бекъпи</h4>
+                <p>Имаш право на 3 бекъпа. За да създадеш нов, трябва да изтриеш стар.</p>
+            </div>
+
+            <h2>🔄 Възстановяване от бекъп</h2>
+            <ol>
+                <li>Спри сървъра</li>
+                <li>Кликни на бекъпа</li>
+                <li>Избери "Restore"</li>
+                <li>Потвърди възстановяването</li>
+                <li>Изчакай процеса да завърши</li>
+                <li>Стартирай сървъра</li>
+            </ol>
+
+            <div class="callout callout-warning">
+                <h4>⚠️ Внимание</h4>
+                <p>Възстановяването ще замени всички текущи файлове с тези от бекъпа!</p>
+            </div>
+
+            <h2>📥 Изтегляне на бекъп</h2>
+            <ol>
+                <li>Кликни на бекъпа</li>
+                <li>Избери "Download"</li>
+                <li>Изтеглянето ще започне автоматично</li>
+            </ol>
+
+            <h2>🔒 Заключване на бекъп</h2>
+            <p>Заключените бекъпи не могат да бъдат изтрити случайно:</p>
+            <ol>
+                <li>Кликни на бекъпа</li>
+                <li>Избери "Lock/Unlock"</li>
+            </ol>
+
+            <h2>🗑️ Изтриване на бекъп</h2>
+            <ol>
+                <li>Увери се, че бекъпът не е заключен</li>
+                <li>Кликни на бекъпа</li>
+                <li>Избери "Delete"</li>
+                <li>Потвърди изтриването</li>
+            </ol>
+
+            <h2>⏰ Автоматични бекъпи</h2>
+            <p>Виж <a href="panel-schedules.html">Задачи</a> за да настроиш автоматични бекъпи.</p>
+        </article>
+        <footer class="content-footer">
+            <div class="footer-nav"><a href="panel-databases.html" class="prev-link">← Бази данни</a><a
+                    href="panel-schedules.html" class="next-link">Задачи →</a></div>
+            <p class="footer-copyright">© 2025 CloudiX Hosting</p>
+        </footer>
+    </main>
+    <script src="js/docs.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задачи - CloudiX Docs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/docs.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">☁️</span><span>CloudiX
+                    Docs</span></a></div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3>Начало</h3><a href="index.html" class="nav-link">📚 Въведение</a><a href="quickstart.html"
+                    class="nav-link">🚀 Бърз старт</a><a href="faq.html" class="nav-link">❓ FAQ</a>
+            </div>
+            <div class="nav-section">
+                <h3>CloudiX App</h3><a href="app-install.html" class="nav-link">📥 Инсталация</a><a
+                    href="app-login.html" class="nav-link">🔐 Вход</a><a href="app-quests.html" class="nav-link">🎯
+                    Покани</a><a href="app-redeem.html" class="nav-link">🎁 Redeem</a>
+            </div>
+            <div class="nav-section">
+                <h3>Pterodactyl</h3><a href="panel-overview.html" class="nav-link">🖥️ Общ преглед</a><a
+                    href="panel-files.html" class="nav-link">📁 Файлове</a><a href="panel-console.html"
+                    class="nav-link">💻 Конзола</a><a href="panel-databases.html" class="nav-link">🗄️ Бази данни</a><a
+                    href="panel-backups.html" class="nav-link">💾 Бекъпи</a><a href="panel-schedules.html"
+                    class="nav-link active">⏰ Задачи</a>
+            </div>
+            <div class="nav-section">
+                <h3>FiveM</h3><a href="fivem-setup.html" class="nav-link">⚙️ Настройка</a><a href="fivem-txadmin.html"
+                    class="nav-link">🎮 txAdmin</a><a href="fivem-resources.html" class="nav-link">📦 Ресурси</a><a
+                    href="fivem-database.html" class="nav-link">🗃️ MySQL</a><a href="fivem-cfx.html"
+                    class="nav-link">🔑 CFX</a>
+            </div>
+            <div class="nav-section">
+                <h3>Поддръжка</h3><a href="support.html" class="nav-link">💬 Контакт</a><a
+                    href="https://discord.gg/Bv2Q6z9T" class="nav-link" target="_blank">🎮 Discord</a>
+            </div>
+        </nav>
+        <div class="sidebar-footer">
+            <p>© 2025 CloudiX</p>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header class="content-header">
+            <div class="breadcrumb"><span>Pterodactyl</span><span>/</span><span>Задачи</span></div>
+            <div class="header-actions"><a href="https://panel.cloudixhosting.site" class="btn btn-primary"
+                    target="_blank">🖥️ Панел</a></div>
+        </header>
+        <article class="content">
+            <h1>⏰ Задачи (Schedules)</h1>
+            <p class="intro">Автоматизирай рестарти, бекъпи и команди с планирани задачи.</p>
+
+            <h2>➕ Създаване на задача</h2>
+            <ol>
+                <li>Отиди на раздел "Schedules"</li>
+                <li>Кликни "Create Schedule"</li>
+                <li>Въведи име за задачата</li>
+                <li>Настрой времето (cron формат или лесно)</li>
+                <li>Кликни "Create Schedule"</li>
+            </ol>
+
+            <h2>📅 Формат на времето</h2>
+            <p>Можеш да използваш:</p>
+            <ul>
+                <li><strong>Лесен режим</strong> - Избери минути, часове, дни</li>
+                <li><strong>Cron формат</strong> - За напреднали</li>
+            </ul>
+
+            <h3>Примери за cron</h3>
+            <pre><code># Всеки ден в 6:00
+0 6 * * *
+
+# Всеки час
+0 * * * *
+
+# Всяка неделя в полунощ
+0 0 * * 0
+
+# На всеки 6 часа
+0 */6 * * *</code></pre>
+
+            <h2>📋 Добавяне на действия</h2>
+            <ol>
+                <li>Кликни на създадената задача</li>
+                <li>Кликни "New Task"</li>
+                <li>Избери тип действие:
+                    <ul>
+                        <li><strong>Send Command</strong> - Изпълни команда</li>
+                        <li><strong>Send Power Action</strong> - Start/Stop/Restart</li>
+                        <li><strong>Create Backup</strong> - Създай бекъп</li>
+                    </ul>
+                </li>
+                <li>Настрой закъснение (ако искаш)</li>
+                <li>Запази</li>
+            </ol>
+
+            <h2>🔄 Пример: Автоматичен рестарт</h2>
+            <ol>
+                <li>Създай schedule "Daily Restart" в 4:00</li>
+                <li>Добави task: Send Command - <code>say Сървърът ще се рестартира след 1 минута!</code></li>
+                <li>Добави task с 60 секунди закъснение: Power Action - Restart</li>
+            </ol>
+
+            <h2>💾 Пример: Автоматичен бекъп</h2>
+            <ol>
+                <li>Създай schedule "Daily Backup" в 3:00</li>
+                <li>Добави task: Create Backup</li>
+            </ol>
+
+            <div class="callout callout-info">
+                <h4>💡 Съвет</h4>
+                <p>Рестартирай сървъра поне веднъж на ден за да освободиш памет и да подобриш производителността.</p>
+            </div>
+        </article>
+        <footer class="content-footer">
+            <div class="footer-nav"><a href="panel-backups.html" class="prev-link">← Бекъпи</a><a
+                    href="fivem-setup.html" class="next-link">FiveM Настройка →</a></div>
+            <p class="footer-copyright">© 2025 CloudiX Hosting</p>
+        </footer>
+    </main>
+    <script src="js/docs.js"></script>
+</body>
+
+</html>

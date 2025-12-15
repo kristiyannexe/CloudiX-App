@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com;">
+    <title>CloudiX App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body data-theme="dark">
+    <!-- Login Screen -->
+    <div class="login-screen" id="login-screen">
+        <div class="login-container">
+            <div class="login-logo">
+                <span class="logo-icon-big">☁️</span>
+                <h1>CloudiX</h1>
+                <p>Вход с Pterodactyl акаунт</p>
+            </div>
+            <div class="login-form">
+                <div class="login-input-group">
+                    <label for="api-key-input">Client API Key</label>
+                    <input type="password" id="api-key-input" placeholder="ptlc_xxxxxxxxxxxxxxxxx">
+                    <small class="form-hint">Вземи от: Панел → Account → API Credentials</small>
+                </div>
+                <button class="btn btn-primary btn-large" id="login-btn">🔐 Вход</button>
+                <div class="login-error hidden" id="login-error"></div>
+            </div>
+            <div class="login-footer">
+                <p>Няма акаунт? <a href="#" id="register-link">Регистрирай се</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-container hidden" id="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">☁️</span>
+                    <span class="logo-text">CloudiX</span>
+                </div>
+                <div class="user-badge" id="user-badge">
+                    <span class="user-name" id="sidebar-username">Guest</span>
+                    <span class="admin-badge hidden" id="admin-badge">Admin</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-page="dashboard">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-text">Dashboard</span>
+                </button>
+                <button class="nav-item" data-page="servers">
+                    <span class="nav-icon">🖥️</span>
+                    <span class="nav-text">My Servers</span>
+                </button>
+                <button class="nav-item" data-page="quests">
+                    <span class="nav-icon">🎯</span>
+                    <span class="nav-text">Quests</span>
+                </button>
+                <button class="nav-item" data-page="redeem">
+                    <span class="nav-icon">🎁</span>
+                    <span class="nav-text">Redeem</span>
+                </button>
+                <button class="nav-item" data-page="announcements">
+                    <span class="nav-icon">📢</span>
+                    <span class="nav-text">Announcements</span>
+                </button>
+                <button class="nav-item" data-page="partner">
+                    <span class="nav-icon">🤝</span>
+                    <span class="nav-text">Partner</span>
+                </button>
+                <button class="nav-item" data-page="settings">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">Settings</span>
+                </button>
+                <button class="nav-item nav-admin hidden" data-page="admin" id="admin-nav">
+                    <span class="nav-icon">👑</span>
+                    <span class="nav-text">Admin Panel</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="coins-display">
+                    <span class="coins-icon">🪙</span>
+                    <span class="coins-amount" id="sidebar-coins">0</span>
+                </div>
+                <button class="btn btn-small btn-secondary logout-btn" id="logout-btn">🚪 Изход</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Page -->
+            <section class="page active" id="page-dashboard">
+                <header class="page-header">
+                    <h1>Dashboard</h1>
+                    <p class="page-subtitle">Welcome back to CloudiX!</p>
+                </header>
+
+                <div class="dashboard-grid">
+                    <!-- User Card -->
+                    <div class="card user-card">
+                        <div class="card-header">
+                            <h3>Your Profile</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="user-avatar">
+                                <span>👤</span>
+                            </div>
+                            <div class="user-info">
+                                <div class="input-group">
+                                    <label for="username-input">Username</label>
+                                    <input type="text" id="username-input" placeholder="Въведи потребителско име"
+                                        maxlength="50">
+                                </div>
+                                <div class="input-group">
+                                    <label for="email-input">Email <span class="required">*за Pterodactyl</span></label>
+                                    <input type="email" id="email-input" placeholder="example@email.com"
+                                        maxlength="100">
+                                </div>
+                                <button class="btn btn-primary" id="save-profile">💾 Запази профила</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coins Card -->
+                    <div class="card coins-card">
+                        <div class="card-header">
+                            <h3>Virtual Coins</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="coins-big">
+                                <span class="coins-icon-big">🪙</span>
+                                <span class="coins-value" id="dashboard-coins">0</span>
+                            </div>
+                            <p class="coins-hint">Complete quests to earn more coins!</p>
+                        </div>
+                    </div>
+
+                    <!-- Offer Card -->
+                    <div class="card offer-card">
+                        <div class="card-header">
+                            <h3>Special Offer</h3>
+                            <span class="badge badge-special">Limited Time</span>
+                        </div>
+                        <div class="card-content">
+                            <p class="offer-text">Redeem FREE hosting with your coins!</p>
+                            <div class="offer-deadline">
+                                <span class="deadline-icon">📅</span>
+                                <span>Valid until: <strong>31 December 2025</strong></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Support Card -->
+                    <div class="card support-card">
+                        <div class="card-header">
+                            <h3>Need Help?</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Open a support ticket on our Discord server.</p>
+                            <button class="btn btn-primary" id="open-tickets">
+                                <span>💬</span> Open Tickets
+                            </button>
+                            <p class="support-hint">Channel: #open-ticket</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- My Servers Page -->
+            <section class="page" id="page-servers">
+                <header class="page-header">
+                    <h1>🖥️ My Servers</h1>
+                    <p class="page-subtitle">Твоите FiveM сървъри в Pterodactyl панела</p>
+                </header>
+
+                <div class="servers-grid" id="servers-container">
+                    <div class="loading-servers">
+                        <span class="loading-icon">⏳</span>
+                        <p>Зареждане на сървъри...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quests Page -->
+            <section class="page" id="page-quests">
+                <header class="page-header">
+                    <h1>Daily Quests</h1>
+                    <p class="page-subtitle">Complete quests to earn coins. Resets daily at midnight!</p>
+                </header>
+
+                <div class="quests-grid" id="quests-container">
+                    <!-- Quests will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Redeem Page -->
+            <section class="page" id="page-redeem">
+                <header class="page-header">
+                    <h1>Redeem Hosting</h1>
+                    <p class="page-subtitle">Choose your hosting plan (one redemption per user).</p>
+                </header>
+
+                <!-- Already Redeemed Notice -->
+                <div class="already-redeemed hidden" id="already-redeemed">
+                    <div class="redeemed-banner">
+                        <span class="redeemed-icon">✅</span>
+                        <div class="redeemed-info">
+                            <h3>Already Redeemed!</h3>
+                            <p>You've redeemed: <strong id="redeemed-service-name">-</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-grid" id="services-container">
+                    <!-- Services will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Announcements Page -->
+            <section class="page" id="page-announcements">
+                <header class="page-header">
+                    <h1>Announcements</h1>
+                    <p class="page-subtitle">Stay updated with the latest news!</p>
+                </header>
+
+                <div class="announcements-container">
+                    <article class="announcement-card featured">
+                        <div class="announcement-header">
+                            <span class="announcement-date">December 2025</span>
+                            <span class="badge badge-new">New</span>
+                        </div>
+                        <h2>🎉 Welcome to CloudiX App!</h2>
+                        <div class="announcement-content">
+                            <p>We're excited to launch our new desktop application! Here's how to get started:</p>
+
+                            <div class="steps-list">
+                                <div class="step">
+                                    <span class="step-number">1</span>
+                                    <div class="step-content">
+                                        <h4>Download the CloudiX App</h4>
+                                        <p>You're already here! Great job.</p>
+                                    </div>
+                                </div>
+
+                                <div class="step">
+                                    <span class="step-number">2</span>
+                                    <div class="step-content">
+                                        <h4>Earn Coins via Quests</h4>
+                                        <p>Complete daily quests to earn virtual coins. Each quest can be claimed once
+                                            per day.</p>
+                                    </div>
+                                </div>
+
+                                <div class="step">
+                                    <span class="step-number">3</span>
+                                    <div class="step-content">
+                                        <h4>Redeem Hosting</h4>
+                                        <p>Use your coins to redeem one of our hosting plans. Remember: one redemption
+                                            per person!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="coming-soon-section">
+                                <span class="badge badge-coming-soon">Coming Soon</span>
+                                <h4>New Features in Development</h4>
+                                <ul>
+                                    <li>🚀 More quest types</li>
+                                    <li>🏆 Leaderboard system</li>
+                                    <li>🎮 Mini-games for bonus coins</li>
+                                    <li>📱 Mobile companion app</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="announcement-card">
+                        <div class="announcement-header">
+                            <span class="announcement-date">December 2025</span>
+                        </div>
+                        <h2>📋 Terms & Conditions</h2>
+                        <div class="announcement-content">
+                            <ul>
+                                <li>Virtual coins have no monetary value</li>
+                                <li>One hosting redemption allowed per user</li>
+                                <li>Offer valid until December 31, 2025</li>
+                                <li>CloudiX reserves the right to modify these terms</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Partner Page - LOWKATA -->
+            <section class="page" id="page-partner">
+                <header class="page-header">
+                    <h1>🤝 Нашият партньор</h1>
+                    <p class="page-subtitle">Запознай се с LOWKATA!</p>
+                </header>
+
+                <div class="partner-container">
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <div class="partner-avatar">
+                                <span class="partner-avatar-icon">🎬</span>
+                            </div>
+                            <div class="partner-info">
+                                <h2 class="partner-name">LOWKATA</h2>
+                                <span class="partner-badge">Официален партньор</span>
+                            </div>
+                        </div>
+
+                        <div class="partner-bio">
+                            <h3>📖 За мен</h3>
+                            <p>Здравейте, аз съм Lowkata. Нека да Ви разкажа нещо кратко за мен. Аз съм млад контент
+                                крейтър, който малко по малко се развива в социалните мрежи. Целта ми е един ден да
+                                стана известен в социалните мрежи, да правя IRL видеа по-често и това да е моята работа
+                                в бъдеще.</p>
+                        </div>
+
+                        <div class="partner-promo">
+                            <div class="promo-box">
+                                <span class="promo-icon">🎁</span>
+                                <div class="promo-content">
+                                    <h4>Промо код</h4>
+                                    <p class="promo-code">LOWKATA</p>
+                                    <span class="promo-discount">20% отстъпка</span>
+                                </div>
+                            </div>
+                            <p class="promo-note">Използвай промо кода за 20% отстъпка!</p>
+                        </div>
+
+                        <div class="partner-socials">
+                            <h3>📱 Социални мрежи</h3>
+                            <div class="social-links">
+                                <a href="#" class="social-link youtube"
+                                    onclick="window.cloudix.openExternal('https://youtube.com/@lowerfool')">
+                                    <span class="social-icon">📺</span>
+                                    <span class="social-name">YouTube</span>
+                                </a>
+                                <a href="#" class="social-link tiktok"
+                                    onclick="window.cloudix.openExternal('https://tiktok.com/@lowkata')">
+                                    <span class="social-icon">🎵</span>
+                                    <span class="social-name">TikTok</span>
+                                </a>
+                                <a href="#" class="social-link instagram"
+                                    onclick="window.cloudix.openExternal('https://instagram.com/lowkataxd')">
+                                    <span class="social-icon">📸</span>
+                                    <span class="social-name">Instagram</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="partner-cta">
+                            <p>Подкрепи Lowkata като го последваш в социалните мрежи! 💜</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Page -->
+            <section class="page" id="page-settings">
+                <header class="page-header">
+                    <h1>Settings</h1>
+                    <p class="page-subtitle">Customize your CloudiX experience.</p>
+                </header>
+
+                <div class="settings-container">
+                    <div class="settings-section">
+                        <h3>Appearance</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <span class="setting-label">Theme</span>
+                                <span class="setting-description">Choose between dark and light mode</span>
+                            </div>
+                            <div class="theme-toggle">
+                                <button class="theme-btn active" data-theme="dark">🌙 Dark</button>
+                                <button class="theme-btn" data-theme="light">☀️ Light</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-section danger-zone">
+                        <h3>Danger Zone</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <span class="setting-label">Reset Demo Data</span>
+                                <span class="setting-description">Clear all data and start fresh. This cannot be
+                                    undone!</span>
+                            </div>
+                            <button class="btn btn-danger" id="reset-data-btn">Reset Data</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admin Panel Page (Admin Only) -->
+            <section class="page" id="page-admin">
+                <header class="page-header">
+                    <h1>👑 Admin Panel</h1>
+                    <p class="page-subtitle">Управление на потребители и монети</p>
+                </header>
+
+                <div class="admin-container">
+                    <!-- Add Coins Section -->
+                    <div class="admin-section">
+                        <h3>🪙 Добави монети</h3>
+                        <div class="admin-form">
+                            <div class="admin-input-group">
+                                <label>Email на потребител</label>
+                                <input type="email" id="admin-user-email" placeholder="user@example.com">
+                            </div>
+                            <div class="admin-input-group">
+                                <label>Брой монети</label>
+                                <input type="number" id="admin-coins-amount" placeholder="100" min="1" max="10000">
+                            </div>
+                            <button class="btn btn-primary" id="admin-add-coins">➕ Добави монети</button>
+                        </div>
+                    </div>
+
+                    <!-- Reset User Section -->
+                    <div class="admin-section">
+                        <h3>🔄 Reset потребител</h3>
+                        <div class="admin-form">
+                            <div class="admin-input-group">
+                                <label>Email на потребител</label>
+                                <input type="email" id="admin-reset-email" placeholder="user@example.com">
+                            </div>
+                            <button class="btn btn-warning" id="admin-reset-user">🔄 Reset Redemption</button>
+                            <button class="btn btn-danger" id="admin-reset-all">🗑️ Reset всички данни</button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="admin-section">
+                        <h3>📊 Информация</h3>
+                        <div class="admin-stats" id="admin-stats">
+                            <div class="admin-stat">
+                                <span class="stat-label">Твоят статус:</span>
+                                <span class="stat-value admin-status">👑 Admin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal-overlay hidden" id="modal-overlay">
+        <div class="modal modal-large">
+            <div class="modal-header">
+                <h3 id="modal-title">Confirm Action</h3>
+            </div>
+            <div class="modal-content">
+                <p id="modal-message">Are you sure you want to proceed?</p>
+                <div id="modal-body"></div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="modal-cancel">Отказ</button>
+                <button class="btn btn-danger" id="modal-confirm">Потвърди</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script type="module" src="./js/app.js"></script>
+</body>
+
+</html>

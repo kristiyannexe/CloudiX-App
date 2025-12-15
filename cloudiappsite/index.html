@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CloudiX App - Спечели монети, покани приятели и вземи безплатен FiveM хостинг!">
+    <meta name="keywords" content="CloudiX, хостинг, безплатен хостинг, FiveM, cloud hosting, монети">
+    <meta name="author" content="CloudiX">
+    <title>CloudiX App - Безплатен FiveM Хостинг</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <span>🚀</span>
+        <span>Приложението е оптимизирано и обновено! Изтегли новата версия сега!</span>
+        <span>🚀</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="nav-logo">
+                <div class="logo-icon-wrapper">
+                    <i data-lucide="cloud" class="logo-icon-svg"></i>
+                </div>
+                <span class="logo-text">CloudiX</span>
+            </a>
+            <div class="nav-links">
+                <a href="#about">За нас</a>
+                <a href="#offer">Оферта</a>
+                <a href="#how-it-works">Как работи</a>
+                <a href="#support">Поддръжка</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about">За нас</a>
+        <a href="#offer">Оферта</a>
+        <a href="#how-it-works">Как работи</a>
+        <a href="#support">Поддръжка</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-glow hero-glow-1"></div>
+            <div class="hero-glow hero-glow-2"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge badge-coming-soon">
+                    <span class="badge-dot"></span>
+                    Налично сега
+                </span>
+                <h1 class="hero-title">CloudiX App</h1>
+                <p class="hero-subtitle">Покани приятели. Вземи безплатен хостинг.</p>
+                <p class="hero-description">
+                    Покани приятели в Discord, събери монети и получи безплатен FiveM сървър.
+                    Твоето пътешествие започва тук.
+                </p>
+                <div class="hero-actions">
+                    <a href="https://cdn.discordapp.com/attachments/1429421221279170570/1450199719279202314/CloudiX_App-Setup-1.0.0.exe?ex=6941ab3c&is=694059bc&hm=743d543231e9a0de412796dbda9c505808e078c6110947d8aef848d656d91aab&"
+                        class="btn btn-primary btn-large">
+                        <i data-lucide="download" class="btn-icon"></i>
+                        Изтегли за Windows
+                    </a>
+                    <a href="#how-it-works" class="btn btn-secondary btn-large">
+                        <i data-lucide="arrow-right" class="btn-icon"></i>
+                        Научи повече
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value">6</span>
+                        <span class="stat-label">Invite Награди</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">1</span>
+                        <span class="stat-label">FiveM План</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">∞</span>
+                        <span class="stat-label">Възможности</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="app-preview">
+                    <div class="app-window">
+                        <div class="app-titlebar">
+                            <div class="titlebar-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="titlebar-title">CloudiX App</span>
+                        </div>
+                        <div class="app-content">
+                            <div class="preview-sidebar">
+                                <div class="preview-nav-item active">
+                                    <i data-lucide="layout-dashboard"></i>
+                                </div>
+                                <div class="preview-nav-item">
+                                    <i data-lucide="target"></i>
+                                </div>
+                                <div class="preview-nav-item">
+                                    <i data-lucide="gift"></i>
+                                </div>
+                                <div class="preview-nav-item">
+                                    <i data-lucide="megaphone"></i>
+                                </div>
+                            </div>
+                            <div class="preview-main">
+                                <div class="preview-card"></div>
+                                <div class="preview-card"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Скролни за повече</span>
+            <i data-lucide="chevron-down" class="scroll-arrow-icon"></i>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="section section-about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">За приложението</span>
+                <h2 class="section-title">Твоят път към безплатен хостинг</h2>
+                <p class="section-subtitle">
+                    CloudiX App прави печеленето на хостинг лесно и забавно. Покани приятели, събери монети и вземи
+                    наградата си.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <h3>Покани приятели</h3>
+                    <p>Покани приятели в нашия Discord сървър. Колкото повече покани, толкова повече монети печелиш!</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-lucide="coins"></i>
+                    </div>
+                    <h3>Събери монети</h3>
+                    <p>Монетите са твоята валута в CloudiX. Събирай ги и ги пази за голямата награда.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-lucide="gift"></i>
+                    </div>
+                    <h3>Вземи хостинг</h3>
+                    <p>Размени монетите си за истински FiveM сървър. Напълно безплатно, само за теб!</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                    <h3>Един на потребител</h3>
+                    <p>За да бъде честно, всеки потребител може да вземе само един безплатен сървър.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offer Section -->
+    <section class="section section-offer" id="offer">
+        <div class="container">
+            <div class="offer-card">
+                <div class="offer-badge">
+                    <i data-lucide="sparkles"></i>
+                    <span>Ограничено време</span>
+                </div>
+                <div class="offer-content">
+                    <h2>Специална оферта</h2>
+                    <p>Присъедини се към CloudiX общността и вземи своя безплатен FiveM сървър. Покани приятели, събери
+                        монети и го вземи преди крайния срок!</p>
+                    <div class="offer-deadline">
+                        <div class="deadline-icon">
+                            <i data-lucide="calendar"></i>
+                        </div>
+                        <div class="deadline-text">
+                            <span class="deadline-label">Офертата е валидна до</span>
+                            <span class="deadline-date">31 Декември 2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="offer-visual">
+                    <div class="coins-animation">
+                        <div class="coin coin-1"><i data-lucide="circle-dollar-sign"></i></div>
+                        <div class="coin coin-2"><i data-lucide="circle-dollar-sign"></i></div>
+                        <div class="coin coin-3"><i data-lucide="circle-dollar-sign"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section section-steps" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Как работи</span>
+                <h2 class="section-title">Три лесни стъпки</h2>
+                <p class="section-subtitle">
+                    Да получиш безплатен хостинг е по-лесно от колкото мислиш. Следвай стъпките и започни.
+                </p>
+            </div>
+
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i data-lucide="download"></i>
+                        </div>
+                        <h3>Изтегли приложението</h3>
+                        <p>Свали CloudiX App за Windows. Инсталацията отнема само няколко секунди.</p>
+                    </div>
+                    <div class="step-connector"></div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <h3>Покани приятели</h3>
+                        <p>Покани приятели в нашия Discord сървър. За всяка покана получаваш монети!</p>
+                    </div>
+                    <div class="step-connector"></div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i data-lucide="rocket"></i>
+                        </div>
+                        <h3>Вземи хостинг</h3>
+                        <p>Когато събереш достатъчно монети, вземи своя безплатен FiveM сървър. Готов за минути!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hosting Plans Preview -->
+            <div class="plans-preview">
+                <h3>FiveM Хостинг план</h3>
+                <div class="plans-grid">
+                    <div class="plan-card plan-featured">
+                        <div class="plan-badge">FiveM</div>
+                        <div class="plan-name">Basic</div>
+                        <div class="plan-cost">
+                            <i data-lucide="coins" class="cost-icon"></i>
+                            <span class="cost-value">390</span>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i data-lucide="check"></i> 3 GB RAM</li>
+                            <li><i data-lucide="check"></i> 15 GB SSD</li>
+                            <li><i data-lucide="check"></i> FiveM + txAdmin</li>
+                            <li><i data-lucide="check"></i> 200% CPU</li>
+                            <li><i data-lucide="check"></i> Pterodactyl Panel</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="section section-support" id="support">
+        <div class="container">
+            <div class="support-card">
+                <div class="support-icon">
+                    <i data-lucide="message-circle"></i>
+                </div>
+                <h2>Нужна ти е помощ?</h2>
+                <p>Нашият екип е готов да ти помогне с всички въпроси относно CloudiX App или твоя хостинг.
+                </p>
+                <div class="support-info">
+                    <div class="discord-badge">
+                        <svg class="discord-icon-svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+                        </svg>
+                        <span>Присъедини се към Discord</span>
+                    </div>
+                    <p class="support-channel">Отвори тикет в канал: <code>#open-ticket</code></p>
+                </div>
+                <a href="https://discord.gg/Bv2Q6z9T" target="_blank" rel="noopener" class="btn btn-primary">
+                    <i data-lucide="external-link" class="btn-icon"></i>
+                    <span>Отвори Discord</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Готов ли си да започнеш?</h2>
+                <p>Изтегли CloudiX App и започни пътя си към безплатен FiveM хостинг днес.</p>
+                <a href="https://cdn.discordapp.com/attachments/1429421221279170570/1450199719279202314/CloudiX_App-Setup-1.0.0.exe?ex=6941ab3c&is=694059bc&hm=743d543231e9a0de412796dbda9c505808e078c6110947d8aef848d656d91aab&"
+                    class="btn btn-primary btn-large">
+                    <i data-lucide="download" class="btn-icon"></i>
+                    Изтегли за Windows
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <div class="logo-icon-wrapper">
+                            <i data-lucide="cloud" class="logo-icon-svg"></i>
+                        </div>
+                        <span class="logo-text">CloudiX</span>
+                    </a>
+                    <p>Покани приятели. Вземи хостинг. Толкова е лесно.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">За нас</a>
+                    <a href="#offer">Оферта</a>
+                    <a href="#how-it-works">Как работи</a>
+                    <a href="#support">Поддръжка</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CloudiX. Всички права запазени.</p>
+                <p class="footer-note">Виртуалните монети нямат парична стойност. Едно вземане на потребител.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

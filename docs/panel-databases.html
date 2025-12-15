@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бази данни - CloudiX Docs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/docs.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header"><a href="index.html" class="logo"><span class="logo-icon">☁️</span><span>CloudiX
+                    Docs</span></a></div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3>Начало</h3><a href="index.html" class="nav-link">📚 Въведение</a><a href="quickstart.html"
+                    class="nav-link">🚀 Бърз старт</a><a href="faq.html" class="nav-link">❓ FAQ</a>
+            </div>
+            <div class="nav-section">
+                <h3>CloudiX App</h3><a href="app-install.html" class="nav-link">📥 Инсталация</a><a
+                    href="app-login.html" class="nav-link">🔐 Вход</a><a href="app-quests.html" class="nav-link">🎯
+                    Покани</a><a href="app-redeem.html" class="nav-link">🎁 Redeem</a>
+            </div>
+            <div class="nav-section">
+                <h3>Pterodactyl</h3><a href="panel-overview.html" class="nav-link">🖥️ Общ преглед</a><a
+                    href="panel-files.html" class="nav-link">📁 Файлове</a><a href="panel-console.html"
+                    class="nav-link">💻 Конзола</a><a href="panel-databases.html" class="nav-link active">🗄️ Бази
+                    данни</a><a href="panel-backups.html" class="nav-link">💾 Бекъпи</a><a href="panel-schedules.html"
+                    class="nav-link">⏰ Задачи</a>
+            </div>
+            <div class="nav-section">
+                <h3>FiveM</h3><a href="fivem-setup.html" class="nav-link">⚙️ Настройка</a><a href="fivem-txadmin.html"
+                    class="nav-link">🎮 txAdmin</a><a href="fivem-resources.html" class="nav-link">📦 Ресурси</a><a
+                    href="fivem-database.html" class="nav-link">🗃️ MySQL</a><a href="fivem-cfx.html"
+                    class="nav-link">🔑 CFX</a>
+            </div>
+            <div class="nav-section">
+                <h3>Поддръжка</h3><a href="support.html" class="nav-link">💬 Контакт</a><a
+                    href="https://discord.gg/Bv2Q6z9T" class="nav-link" target="_blank">🎮 Discord</a>
+            </div>
+        </nav>
+        <div class="sidebar-footer">
+            <p>© 2025 CloudiX</p>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header class="content-header">
+            <div class="breadcrumb"><span>Pterodactyl</span><span>/</span><span>Бази данни</span></div>
+            <div class="header-actions"><a href="https://panel.cloudixhosting.site" class="btn btn-primary"
+                    target="_blank">🖥️ Панел</a></div>
+        </header>
+        <article class="content">
+            <h1>🗄️ Бази данни</h1>
+            <p class="intro">Създавай и управлявай MySQL бази данни за твоя сървър.</p>
+
+            <h2>➕ Създаване на база данни</h2>
+            <ol>
+                <li>Отиди на раздел "Databases"</li>
+                <li>Кликни "New Database"</li>
+                <li>Въведи име за базата</li>
+                <li>Кликни "Create Database"</li>
+            </ol>
+
+            <h2>📋 Информация за свързване</h2>
+            <p>След създаване ще видиш:</p>
+            <ul>
+                <li><strong>Endpoint</strong> - Хост на базата (напр. <code>mysql.cloudixhosting.site</code>)</li>
+                <li><strong>Port</strong> - Порт (обикновено 3306)</li>
+                <li><strong>Database name</strong> - Името на базата</li>
+                <li><strong>Username</strong> - Потребителско име</li>
+                <li><strong>Password</strong> - Парола (кликни иконата за да видиш)</li>
+            </ul>
+
+            <h2>🔌 Connection String</h2>
+            <p>За FiveM ресурси използвай формат:</p>
+            <pre><code>mysql://username:password@host:3306/database_name</code></pre>
+
+            <p>Пример за <code>server.cfg</code>:</p>
+            <pre><code>set mysql_connection_string "mysql://u123_abc:mypassword@mysql.cloudixhosting.site:3306/s123_fivem"</code></pre>
+
+            <h2>🔄 Ротация на парола</h2>
+            <ol>
+                <li>Кликни иконата за ротация до базата</li>
+                <li>Потвърди действието</li>
+                <li>Копирай новата парола</li>
+                <li>Обнови connection string в конфигурацията</li>
+            </ol>
+
+            <div class="callout callout-warning">
+                <h4>⚠️ Внимание</h4>
+                <p>След ротация на паролата, старата парола спира да работи веднага!</p>
+            </div>
+
+            <h2>🗑️ Изтриване</h2>
+            <p>За да изтриеш база данни:</p>
+            <ol>
+                <li>Кликни иконата за кошче</li>
+                <li>Потвърди изтриването</li>
+            </ol>
+
+            <div class="callout callout-danger">
+                <h4>⚠️ Загуба на данни</h4>
+                <p>Изтриването е необратимо! Всички данни ще бъдат загубени.</p>
+            </div>
+        </article>
+        <footer class="content-footer">
+            <div class="footer-nav"><a href="panel-console.html" class="prev-link">← Конзола</a><a
+                    href="panel-backups.html" class="next-link">Бекъпи →</a></div>
+            <p class="footer-copyright">© 2025 CloudiX Hosting</p>
+        </footer>
+    </main>
+    <script src="js/docs.js"></script>
+</body>
+
+</html>

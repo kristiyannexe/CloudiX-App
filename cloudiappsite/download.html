@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Изтегли CloudiX App - Безплатен FiveM хостинг">
+    <title>Изтегли CloudiX App</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --bg-primary: #0a0a12;
+            --bg-secondary: #12121f;
+            --bg-card: rgba(20, 20, 35, 0.8);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b8;
+            --accent-primary: #7c3aed;
+            --accent-secondary: #3b82f6;
+            --accent-gradient: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+            --success: #22c55e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-image:
+                radial-gradient(ellipse at top, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+        }
+
+        .download-container {
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gradient);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .logo-text {
+            font-size: 36px;
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .download-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 48px 40px;
+            backdrop-filter: blur(20px);
+        }
+
+        .download-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--accent-gradient);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 50px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .download-card h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .download-card p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .version-badge {
+            display: inline-block;
+            background: rgba(124, 58, 237, 0.2);
+            color: var(--accent-primary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--accent-gradient);
+            color: white;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 14px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.3);
+            width: 100%;
+            justify-content: center;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(124, 58, 237, 0.4);
+        }
+
+        .download-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .requirements {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .requirements h3 {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .requirements ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .requirements li {
+            background: var(--bg-secondary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            margin-top: 40px;
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .changelog {
+            margin-top: 24px;
+            text-align: left;
+        }
+
+        .changelog h3 {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .changelog ul {
+            list-style: none;
+        }
+
+        .changelog li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .changelog li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="download-container">
+        <div class="logo">
+            <div class="logo-icon">☁️</div>
+            <span class="logo-text">CloudiX</span>
+        </div>
+
+        <div class="download-card">
+            <div class="download-icon">📥</div>
+            <h1>Изтегли CloudiX App</h1>
+            <p>Спечели монети, покани приятели и вземи безплатен FiveM хостинг!</p>
+
+            <span class="version-badge">Версия 1.3.0</span>
+
+            <a href="https://cdn.discordapp.com/attachments/1429421221279170570/1450249661028761761/CloudiX_App-Setup-1.3.0.exe?ex=6941d9bf&is=6940883f&hm=c4274a81545e32086b92e9e70b93701fae088e2c735cff40fe82113e5ddd2acb&"
+                class="download-btn" download>
+                <i data-lucide="download"></i>
+                Изтегли за Windows
+            </a>
+
+            <div class="requirements">
+                <h3>Системни изисквания</h3>
+                <ul>
+                    <li>Windows 10/11</li>
+                    <li>4 GB RAM</li>
+                    <li>100 MB свободно място</li>
+                </ul>
+            </div>
+
+            <div class="changelog">
+                <h3>📋 Какво ново в v1.3.0:</h3>
+                <ul>
+                    <li>🤝 Partner страница за LOWKATA</li>
+                    <li>🔄 Auto-update система</li>
+                    <li>📱 Pterodactyl интеграция</li>
+                    <li>🎯 Система за покани</li>
+                    <li>🎁 Безплатен хостинг</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <a href="index.html">Начало</a>
+            <a href="https://discord.gg/Bv2Q6z9T" target="_blank">Discord</a>
+            <a href="https://docs.cloudixhosting.site" target="_blank">Документация</a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
